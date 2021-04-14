@@ -12,11 +12,9 @@
     <body style="margin: 0; overflow: hidden;">
         <a-scene
             renderer="logarithmicDepthBuffer: true;"
-            vr-mode-ui="enabled: false"
             embedded
             loading-screen="enabled: false;"
             arjs="sourceType: webcam; debugUIEnabled: false;"
-            precision: high;
         >
             <a-assets>
                 <a-asset-item
@@ -26,14 +24,14 @@
             </a-assets>
 
                 <a-entity
-                    
+                    look-at="[gps-camera]"
                     animation-mixer="loop: repeat"
                     gltf-model="#animated-asset"
                     scale="1 1 1"
-                    gps-entity-place="latitude: 52.980297; longitude: 0.905007;"
+                    gps-entity-place="latitude: 52.9818459543776; longitude: 0.637483298778534;"
                 ></a-entity>
 
-            <a-camera id='camera1' look-controls-enabled='false' arjs-look-controls='smoothingFactor: 0.3' gps-camera='gpsMinDistance: 5' rotation-reader> </a-camera>
+            <a-camera gps-camera rotation-reader></a-camera>
         </a-scene>
     </body>
 </html>
