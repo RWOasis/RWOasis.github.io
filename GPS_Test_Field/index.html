@@ -11,6 +11,15 @@
 
     <body style="margin: 0; overflow: hidden;">
         <a-scene
+                 DeviceMotionEvent.requestPermission()
+.then(response => {
+  if (response == 'granted') {
+    window.addEventListener('devicemotion', (e) => {
+      // do something with e
+    })
+  }
+}).catch(console.error)
+            
             renderer="logarithmicDepthBuffer: true;"
             vr-mode-ui="enabled: false"
             embedded
