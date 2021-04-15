@@ -12,9 +12,11 @@
     <body style="margin: 0; overflow: hidden;">
         <a-scene
             renderer="logarithmicDepthBuffer: true;"
+            vr-mode-ui="enabled: false"
             embedded
             loading-screen="enabled: false;"
             arjs="sourceType: webcam; debugUIEnabled: false;"
+            precision: high;
         >
             <a-assets>
                 <a-asset-item
@@ -24,36 +26,14 @@
             </a-assets>
 
                 <a-entity
-                    look-at="[gps-camera]"
+                    
                     animation-mixer="loop: repeat"
                     gltf-model="#animated-asset"
-                    scale="0.003548695286703814 0.003548695286703814 0.003548695286703814"
-                    gps-entity-place="latitude: 53.260458840727544; longitude: -1.4287632890045643;"
-                ></a-entity>
-                <a-entity
-                    look-at="[gps-camera]"
-                    animation-mixer="loop: repeat"
-                    gltf-model="#animated-asset"
-                    scale="0.003548695286703814 0.003548695286703814 0.003548695286703814"
-                    gps-entity-place="latitude: 53.26079898050781; longitude: -1.4319175668060782;"
-                ></a-entity>
-                <a-entity
-                    look-at="[gps-camera]"
-                    animation-mixer="loop: repeat"
-                    gltf-model="#animated-asset"
-                    scale="0.003548695286703814 0.003548695286703814 0.003548695286703814"
-                    gps-entity-place="latitude: 53.25950258421101; longitude: -1.4286667294800284;"
-                ></a-entity>
-                <a-entity
-                    look-at="[gps-camera]"
-                    animation-mixer="loop: repeat"
-                    gltf-model="#animated-asset"
-                    scale="0.003548695286703814 0.003548695286703814 0.003548695286703814"
-                    gps-entity-place="latitude: 53.25965661355084; longitude: -1.4324432797729971;"
+                    scale="1 1 1"
+                    gps-entity-place="latitude: 53.26020152799981; longitude: -361.4306762907655;"
                 ></a-entity>
 
             <a-camera gps-camera rotation-reader></a-camera>
         </a-scene>
     </body>
 </html>
-
