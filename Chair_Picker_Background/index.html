@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Viewer</title>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <style>
+        model-viewer{
+            width: 600px;
+            height: 800px;
+            margin: 0 auto;
+        }
+
+
+    </style>
+</head>
+<body>
+    <model-viewer src="assets/Chair_1.glb" camera-controls ar autoplay ar shadow-intensity="3" skybox-image="hdr/sky.hdr" shadow-softness="1" ios-src="assets/Cube.usdz" ar camera-controls alt="A 3D model carousel">
+    
+      <div class="slider">
+        <div class="slides">
+          <button class="slide selected" onclick="switchSrc(this, 'Chair_1')" style="background-image: url('images/Chair_1.png');">
+    
+          </button><button class="slide" onclick="switchSrc(this, 'Chair_2')" style="background-image: url('images/Chair_2.png');">
+    
+          </button><button class="slide" onclick="switchSrc(this, 'Chair_3')" style="background-image: url('images/Chair_3.png');">
+
+          </button><button class="slide" onclick="switchSrc(this, 'Chair_4')" style="background-image: url('images/Chair_4.png');">
+        </button></div>
+      </div>
+    </model-viewer>
+    
+    <script type="module">
+      const modelViewer = document.querySelector("model-viewer");
+    
+      window.switchSrc = (element, name) => {
+        const base = "assets/" + name;
+        modelViewer.src = base + '.glb';
+        modelViewer.poster = base + '.png';
+        const slides = document.querySelectorAll(".slide");
+        slides.forEach((element) => {element.classList.remove("selected");});
+        element.classList.add("selected");
+      };
+    
+      document.querySelector(".slider").addEventListener('beforexrselect', (ev) => {
+        // Keep slider interactions from affecting the XR scene.
+        ev.preventDefault();
+      });
+    </script>
+    
+    <style>
+      /* This keeps child nodes hidden while the element loads */
+      :not(:defined) > * {
+        display: none;
+      }
+    
+      model-viewer {
+        background-color: #eee;
+        overflow-x: hidden;
+        --poster-color: #eee;
+      }
+  
+    
+      .slider {
+        width: 100%;
+        text-align: center;
+        overflow: hidden;
+        position: absolute;
+        bottom: 16px;
+      }
+    
+      .slides {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+      }
+    
+      .slide {
+        scroll-snap-align: start;
+        flex-shrink: 0;
+        width: 65px;
+        height: 95px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: #fff;
+        margin-right: 10px;
+        border-radius: 10px;
+        border: none;
+        display: flex;
+      }
+    
+      .slide.selected {
+        border: 2px solid #ff6600;
+      }
+    
+      .slide:focus {
+        outline: none;
+      }
+    
+      .slide:focus-visible {
+        outline: 1px solid #ff6600;
+      }
+    
+    </style>
+</html>
