@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang ="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<title>AR Oasis Systems</title>
+</head>
+<script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+<script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+
+<body style='margin : 0px;''>
+  <a-scene renderer="logarithmicDepthBuffer: true;" loading-screen="enabled: false;" embedded arjs="debugUIEnabled: false;">
+    <a-assets>
+        <a-asset-item id="Asset" src="./glbAssets/3D_Plan.glb"></a-asset-item>
+    </a-assets>
+    <a-marker type="pattern" id="1" url="./images/pattern-marker.patt" smooth="true" emitevents = "true">
+        <a-gltf-model src="#Asset" animation-mixer scale="30 30 30"></a-gltf-model>
+    </a-marker>
+    <a-marker type="pattern" id="2" url="./images/pattern-marker.patt" smooth="true" emitevents = "true">
+        <a-box depth="1" height="1" width="1" position='0 0.5 0' material='opacity: 0.8; side:double; color:blue;'></a-box>
+    </a-marker>
+    <a-entity camera></a-entity>
+  </a-scene>
+
+  <script type="module">    
+  import * as THREE from './build/three.module.js';
+
+  var scene, camera, renderer, clock, deltaTime, totalTime;
+
+var arToolkitSource, arToolkitContext;
+
+var markerRoot1;
+
+var material1, mesh1;
+
+	scene = new THREE.Scene();
+				
+	camera = new THREE.Camera();
+	scene.add(camera);
+
+	renderer = new THREE.WebGLRenderer({
+		antialias : true,
+		alpha: true
+	});
+  renderer.setClearColor(new THREE.Color('lightgrey'), 0)
+	renderer.setSize( 640, 480 );
+	renderer.domElement.style.position = 'absolute'
+	renderer.domElement.style.top = '0px'
+	renderer.domElement.style.left = '0px'
+	document.body.appendChild( renderer.domElement );
+m.addEventListener("markerFound", (e)=>{
+  //Detects if marker1 has been found
+})
+
+m.addEventListener("markerLost", (e)=>{
+  //Detects if marker1 has been lost
+})
+var m2 = document.getElementById("2")
+m2.addEventListener("markerFound", (e)=>{
+  //Detects if marker2 has been found
+})
+
+m2.addEventListener("markerLost", (e)=>{
+  //Detects if marker2 has been lost
+})
+  </script>
+</body>
+</html>
