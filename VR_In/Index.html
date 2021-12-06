@@ -6,6 +6,8 @@
     <script src="https://unpkg.com/aframe-animation-timeline-component@1.6.0/dist/aframe-animation-timeline-component.min.js"></script>
     <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
     <script src="js/aframe-extras.js"></script>
+    <script src="../dist/oculus-hand-controls-copy.js"></script>
+
   </head>
   <body>
     <a-scene renderer="physicallyCorrectLights: true;">
@@ -30,8 +32,9 @@
         animation-mixer="clip: ArmatureAction"
         ></a-gltf-model>
       </a-entity>
-      <a-entity id="leftHand" hand-tracking-controls="hand: left; handModelStyle: lowPoly; color: #ffcccc"></a-entity>
-      <a-entity id="rightHand" hand-tracking-controls="hand: right; handModelStyle: lowPoly; color: #ffcccc"></a-entity>
+
+      <a-entity id="leftHand" oculus-hand-controls="hand: left; handModelStyle: highPoly; color: #369244"></a-entity>
+      <a-entity id="rightHand" oculus-hand-controls="hand: right; handModelStyle: highPoly; color: #369244"></a-entity>
 
 
       <button slot="hotspot" data-position="-0.54 2.2 0.86" data-normal="-0.73 0.05 0.69">
