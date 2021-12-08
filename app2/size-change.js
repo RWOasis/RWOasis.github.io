@@ -12,6 +12,6 @@ AFRAME.registerComponent('size-change', {
   onSliderChanged: function (evt) {
 
     var rotation = evt.detail.value;
-    this.el.object3D.rotation.set(rotation, rotation, rotation);
+    this.el.object3D.rotation.set(0, rotation, 0);
   }
 });
