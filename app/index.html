@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>UI Testing</title>
+    <meta name="description" content="Hello, WebVR! • A-Frame">
+    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@7b3f4b5a611f13ce1e8d69ed4d670e3b95a0243d/dist/aframe-master.min.js"></script>
+    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+
+    <script src="https://gftruj.github.io/hand.tracking.controls.extras/dist/oculus-hand-controls-copy.js"></script>
+    <script src="pinchable.js"></script>
+    <script src="color-change.js"></script>
+    <script src="slider.js"></script>
+    <script src="size-change.js"></script>
+    <script src="button.js"></script>
+    <script src="menu.js"></script>
+    <script src="pressable.js"></script>
+    <script src="event-manager.js"></script>
+  </head>
+  <body>
+     <a-scene>
+      <a-asset-item id="Trex" src="assets/Trex.glb"></a-asset-item>
+      <a-asset-item id="ground" src="assets/ground.glb"></a-asset-item>
+      <a-light type="ambient" intensity=".5" color="#BBB"></a-light>
+
+      <a-light
+        type="directional"
+        color="#f0e2bd"
+        intensity="1"
+        position="-0.5 1 1"
+      ></a-light>
+
+      <a-entity>
+        <a-gltf-model 
+        src="#ground"
+        rotation="0 0 0" 
+        scale="1 1 1" 
+        position="0 0 0"
+        size-change
+        material="color: #000000"
+        id="ground"
+        ></a-gltf-model>
+        ></a-entity>
+
+
+
+      <a-entity>
+      <a-gltf-model 
+      src="#Trex"
+      rotation="0 0 0" 
+      scale="1 1 1" 
+      position="0 0 -7"
+      size-change
+      animation-mixer="clip: ArmatureAction"
+      id="Trex"
+      visible="true"
+      ></a-gltf-model>
+      ></a-entity>
+       <a-entity
+        id="torusGeometry"
+        position="0 2.0 -1"
+        rotation="45 45 0"
+        geometry="primitive: torus; radius: 0.4; radius-tubular: 0.06"
+        material="color: #d2e603"
+        size-change
+        visible="false"
+        scale="0.5 0.5 0.5"
+      ></a-entity>
+       <a-entity
+        id="sphereGeometry"
+        position="0 2.0 -1"
+        rotation="45 45 0"
+        geometry="primitive: sphere; radius: 0.6;"
+        material="color: #fcdab7"
+        size-change
+        visible="false"
+        scale="0.5 0.5 0.5"
+      ></a-entity>
+      <a-entity id="menu" menu position="0 1.5 -0.5" rotation="-45 0 0" event-manager>
+        <a-entity slider position="0 0.10 0"></a-entity>
+        <a-entity id="sphereButton" button="label: sphere" position="-0.15 0 0"></a-entity>
+        <a-entity id="boxButton" button="label: Trex" position="0 0 0"></a-entity>
+        <a-entity id="torusButton"button="label: torus" position="0.15 0 0"></a-entity>
+       
+      </a-entity>
+      <a-entity hand-tracking-controls="hand: left" oculus-hand-controls="hand: left;"></a-entity>
+      <a-entity hand-tracking-controls="hand: right" oculus-hand-controls="hand: right;"></a-entity>
+    </a-scene>
+  </body>
+</html>
