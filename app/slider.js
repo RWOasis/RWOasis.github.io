@@ -39,7 +39,7 @@ AFRAME.registerComponent('slider', {
     });
 
     pickerEl.setAttribute('rotation', {
-      x: 90, y: 0, z: 0
+      x: 0, y: 90, z: 0
     });
 
     pickerEl.setAttribute('color-change', '');
