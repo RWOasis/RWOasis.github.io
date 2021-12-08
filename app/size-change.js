@@ -13,6 +13,6 @@ AFRAME.registerComponent('size-change', {
 
 
     var rotation = evt.detail.value;
-    this.el.object3D.rotation.set(rotation, rotation, rotation);
+    this.el.object3D.rotation.set(rotation, 0, 0);
   }
 });
