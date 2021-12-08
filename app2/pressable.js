@@ -6,7 +6,7 @@ AFRAME.registerComponent('pressable', {
 
   init: function () {
     this.worldPosition = new THREE.Vector3();
-    this.handEls = document.querySelectorAll('[hand-tracking-controls]');
+    this.handEls = document.querySelectorAll('[oculus-hand-controls]');
     this.pressed = false;
   },
 
@@ -16,7 +16,7 @@ AFRAME.registerComponent('pressable', {
     var distance;
     for (var i = 0; i < handEls.length; i++) {
       handEl = handEls[i];
-      distance = this.calculateFingerDistance(handEl.components['hand-tracking-controls'].indexTipPosition);
+      distance = this.calculateFingerDistance(handEl.components['oculus-hand-controls'].indexTipPosition);
       if (distance < this.data.pressDistance) {
         if (!this.pressed) { this.el.emit('pressedstarted'); }
         this.pressed = true;
