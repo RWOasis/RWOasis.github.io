@@ -53,13 +53,13 @@ AFRAME.registerComponent('slider', {
     var el = this.el;
     var evtDetail = this.evtDetail;
     var halfWidth = this.data.width / 2;
-    var localPosition = this.localPosition;
-    localPosition.copy(evt.detail.position);
+    var localRotation = this.localRotation;
+    localRotation.copy(evt.detail.rotation);
     el.object3D.updateMatrixWorld();
-    el.object3D.worldToLocal(localPosition);
-    if (localPosition.x < -halfWidth || localPosition.x > halfWidth) { return; }
-    this.pickerEl.object3D.position.x = localPosition.x;
-    evtDetail.value = (this.pickerEl.object3D.position.x + halfWidth) / this.data.width;
+    el.object3D.worldToLocal(localRotation);
+    if (localRotation.x < -halfWidth || localRotation.x > halfWidth) { return; }
+    this.pickerEl.object3D.rotation.x = localRotation.x;
+    evtDetail.value = (this.pickerEl.object3D.rotation.x + halfWidth) / this.data.width;
     this.el.emit('sliderchanged', evtDetail);
   }
 });
