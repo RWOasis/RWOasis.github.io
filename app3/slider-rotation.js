@@ -60,6 +60,6 @@ AFRAME.registerComponent('slider-rotation', {
     if (localPosition.x < -halfWidth || localPosition.x > halfWidth) { return; }
     this.pickerEl.object3D.position.x = localPosition.x;
     evtDetail.value = (this.pickerEl.object3D.position.x + halfWidth) / this.data.width;
-    this.el.emit('sliderchanged', evtDetail);
+    this.el.emit('sliderchanged2', evtDetail);
   }
 });
