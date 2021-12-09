@@ -2,14 +2,14 @@
 AFRAME.registerComponent('size-rotation', {
   init: function () {
     this.bindMethods();
-    this.el.sceneEl.addEventListener('sliderchanged2', this.onSliderChanged);
+    this.el.sceneEl.addEventListener('sliderchanged2', this.onSliderChanged2);
   },
 
   bindMethods: function () {
-    this.onSliderChanged = this.onSliderChanged.bind(this);
+    this.onSliderChanged2 = this.onSliderChanged2.bind(this);
   },
 
-  onSliderChanged: function (evt) {
+  onSliderChanged2: function (evt) {
 
     var rotation = evt.detail.value;
     this.el.object3D.rotation.set(0, rotation, 0);
