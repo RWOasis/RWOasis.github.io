@@ -2,7 +2,7 @@
 AFRAME.registerComponent('size-rotation', {
   init: function () {
     this.bindMethods();
-    this.el.sceneEl.addEventListener('sliderchanged', this.onSliderChanged);
+    this.el.sceneEl.addEventListener('sliderchanged2', this.onSliderChanged);
   },
 
   bindMethods: function () {
