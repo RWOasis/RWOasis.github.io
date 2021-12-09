@@ -1,5 +1,5 @@
 /* global AFRAME */
-AFRAME.registerComponent('size-change', {
+AFRAME.registerComponent('size-rotation', {
   init: function () {
     this.bindMethods();
     this.el.sceneEl.addEventListener('sliderchanged', this.onSliderChanged);
