@@ -38,10 +38,10 @@ AFRAME.registerComponent('event-manager', {
       this.boxButtonEl.removeState('pressed');
       this.sphereButtonEl.removeState('pressed');
       this.torusButtonEl.removeState('pressed');
-      this.boxGeometryEl.visible = false;
-      this.sphereGeometryEl.visible = false;
-      this.torusGeometryEl.visible = false;
-      this.buttonToGeometry[targetEl.id].visible = true;
+      this.boxGeometryEl.object3D.visible = false;
+      this.sphereGeometryEl.object3D.visible = false;
+      this.torusGeometryEl.object3D.visible = false;
+      this.buttonToGeometry[targetEl.id].object3D.visible = true;
     }
   
   }
