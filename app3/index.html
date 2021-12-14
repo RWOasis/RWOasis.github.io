@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>UI Testing</title>
+
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+   
+    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    <script src="https://gftruj.github.io/hand.tracking.controls.extras/dist/oculus-hand-controls-copy.js"></script>
+    <script src="pinchable.js"></script>
+    <script src="color-change.js"></script>
+    
+    <script src="slider.js"></script>
+    <script src="size-change.js"></script>
+
+    <script src="size-rotation.js"></script>
+    <script src="slider-rotation.js"></script>
+
+    <script src="button.js"></script>
+    <script src="menu.js"></script>
+    <script src="pressable.js"></script>
+    <script src="event-manager.js"></script>
+  </head>
+  <body>
+    <a-scene inspector="url: get out of my swamp" shadow="type: pcfsoft; autoUpdate: true;" renderer="antialias: true; colorManagement: true; physicallyCorrectLights: true;">
+      <a-sound src="assets/angeldust.mp3" autoplay="true" position="0 2 5"></a-sound>
+      <a-entity light="type: ambient; color: #796970"  intensity="0.1"></a-entity>
+      <a-sky src="assets\sky.png"></a-sky>
+
+      <a-light
+        type="directional"
+        color="#fcf8f5"
+        intensity="1"
+        position="-0.5 1 1"
+      ></a-light>
+
+
+    <a-asset-item id="ground" src="assets/ground.glb"></a-asset-item>
+    
+    <a-entity>
+      <a-gltf-model 
+      src="#ground"
+      rotation="0 0 0" 
+      scale="1 1 1" 
+      position="0 0 0"
+      id="ground"
+      shadow="cast: true"
+      ></a-gltf-model>
+    </a-entity>
+
+      <a-entity>
+      <a-gltf-model 
+        id="boxGeometry"
+        position="0 0.1 -3"
+        rotation="0 0 0"
+        material="color: #ff4b5c"
+        animation-mixer="clip: ArmatureAction"
+        geometry="primitive: box; height: 0.6; width: 0.6; depth: 0.6"
+        src="assets/Trex.glb"
+        size-change
+        size-rotation
+        scale="0.5 0.5 0.5"
+        shadow="cast: true"
+      ></a-gltf-model>
+      </a-entity>
+
+        <a-entity>
+        <a-gltf-model 
+        id="torusGeometry"
+        position="0 2.0 -1"
+        rotation="0 0 0"
+        geometry="primitive: torus; radius: 0.4; radius-tubular: 0.06"
+        material="color: #d2e603"
+        src="assets/Shuttle.glb"
+        size-change
+        size-rotation
+        visible="false"
+        scale="0.5 0.5 0.5"
+        shadow="cast: true"
+        ></a-gltf-model>
+        </a-entity>
+
+       <a-entity
+        id="sphereGeometry"
+        position="0 2.0 -1"
+        rotation="45 45 0"
+        geometry="primitive: sphere; radius: 0.6;"
+        material="color: #fcdab7"
+        size-change
+        size-rotation
+        visible="false"
+        scale="0.5 0.5 0.5"
+      ></a-entity>
+
+
+        <a-entity id="menu" menu position="0 1 -0.2" rotation="-45 0 0" event-manager>
+
+        <a-entity slider-rotation position="0 0.10 0"></a-entity>
+        <a-entity slider position="0 0.30 0"></a-entity>
+
+        <a-entity id="sphereButton" button="label: Missing" position="-0.15 0 0"></a-entity>
+        <a-entity id="boxButton" button="label: Trex" position="0 0 0"></a-entity>
+        <a-entity id="torusButton"button="label: Shuttle" position="0.15 0 0"></a-entity>
+
+      </a-entity>
+      <a-entity hand-tracking-controls="hand: left" oculus-hand-controls="hand: left;"></a-entity>
+      <a-entity hand-tracking-controls="hand: right" oculus-hand-controls="hand: right;"></a-entity>
+    </a-scene>
+  </body>
+</html>
