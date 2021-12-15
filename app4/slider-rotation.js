@@ -52,7 +52,7 @@ AFRAME.registerComponent('slider-rotation', {
   onPinchedMoved: function (evt) {
     var el = this.el;
     var evtDetail = this.evtDetail;
-    var halfWidth = this.data.width / 8;
+    var halfWidth = this.data.width / 0.2;
     var localPosition = this.localPosition;
     localPosition.copy(evt.detail.position);
     el.object3D.updateMatrixWorld();
