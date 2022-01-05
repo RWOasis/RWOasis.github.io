@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-animation-component@^4.1.1/dist/aframe-animation-timeline-component.min.js"></script> 
+    <script src="https://unpkg.com/aframe-animation-timeline-component@1.6.0/dist/aframe-animation-timeline-component.min.js"></script>
+    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    <script src="js/aframe-extras.js"></script>
+    <script src="js/aframe-text-geometry-component.min.js"></script>
+  </head>
+  <body>
+    <a-scene fog="type: exponential; density: 0.1; color: #0a51a8">
+      <a-light type="ambient" color="#BBB"></a-light>
+
+      <a-light
+        type="directional"
+        color="#ffffff"
+        intensity="3"
+        position="-0.5 1 1"
+      ></a-light>
+
+      <a-sky color="#ffffff"></a-sky>
+
+      
+      <a-asset-item id="Whale" src="assets/Whale.glb"></a-asset-item>
+
+      <a-entity position="0 0 -13">
+        <a-gltf-model 
+        src="#Whale"
+        rotation="0 0 0" 
+        scale="1 1 1" 
+        animation-mixer="clip: Swim"
+        ></a-gltf-model>
+      </a-entity>
+
+    </a-scene>
+  </body>
+</html>
